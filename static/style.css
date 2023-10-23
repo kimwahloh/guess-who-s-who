@@ -1,0 +1,64 @@
+/* Reset some default styles for consistency */
+body {
+    margin: 30px 0 0; /* Increase the top margin to 30px */
+    padding: 0;
+    font-family: 'Lobster', cursive;
+    background: url('https://wallpapers.com/images/featured/black-hole-4mnirpi3le97v1b3.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+
+/* Style the title with text outline */
+h1 {
+    font-size: 36px;
+    color: #fff;
+    margin: 20px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Style the introductory text with a more visible text color */
+p {
+    font-size: 20px;
+    color: #f0f0f0; /* A lighter color for better contrast */
+    margin: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Center the images container */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Style the images */
+img {
+    border: 5px solid #fff;
+    border-radius: 8px;
+    width: 350px;
+    height: 500px;
+    transition: transform 0.2s;
+}
+
+/* Hover effect for images */
+img:hover {
+    transform: scale(1.05);
+}
+
+/* Style the link */
+a {
+    display: block;
+    font-size: 20px;
+    color: #0077b6;
+    text-decoration: none;
+    margin: 20px;
+    text-transform: uppercase;
+}
+
+/* On hover, change link color */
+a:hover {
+    color: #004466;
+}
