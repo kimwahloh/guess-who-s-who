@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokemon List</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='getpokemon.css') }}">
+</head>
+</head>
+<body>
+    <h1>{{ heading }}</h1>
+    <form method="POST" action="/getpokemon">
+        <label for="pokemon_name">Search for a Pokemon:</label>
+        <input type="text" id="pokemon_name" name="pokemon_name">
+        <input type="submit" value="Search">
+    </form>
+    <ul>
+        {% for name in names %}
+            <li>{{ name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

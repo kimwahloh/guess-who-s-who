@@ -1,0 +1,34 @@
+/* Import the Star Jedi font at the top of your CSS file */
+@font-face {
+    font-family: 'Star Jedi';
+    src: url('Starjhol.ttf') format('truetype'); 
+}
+
+h1 {
+    font-family: 'Star Jedi', Arial, sans-serif;
+    font-size: 3rem;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: white; /* Set the font color to white */
+}
+
+p {
+    color: white;
+    font-size: 24px;
+}
+
+.opening-crawl {
+    font-family: 'Star Jedi', Arial, sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 20px 0;
+    color: white; /* Set the font color to white */
+}
+
+body {
+    background-image: url("star.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

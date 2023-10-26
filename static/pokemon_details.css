@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif; /* Removed 'Pokemon' font from the body */
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 20px;
+    background-image: url("allpoke.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+@font-face {
+    font-family: 'Pokemon';
+    src: url('Pokemon\ Solid.ttf') format('truetype');
+}
+
+h1 {
+    font-family: 'Pokemon', Arial, sans-serif; /* Set 'Pokemon' font for h1 only */
+    font-size: 3rem;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #ffcb05; /* Set the font color to yellow */
+    text-shadow: 
+        -4px -4px 0 #0077b6, 4px -4px 0 #0077b6, -4px 4px 0 #0077b6, 4px 4px 0 #0077b6,
+        -4px -4px 0 #0077b6, 4px -4px 0 #0077b6, -4px 4px 0 #0077b6, 4px 4px 0 #0077b6,
+        0 0 12px #0077b6; /* Add a thicker blue outline */
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: black;
+        text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+        margin-right: 10px;
+    }
+
+    h3 {
+        font-weight: bold;
+        color: black;
+        text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+        margin-right: 10px;
+    }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    font-size: 24px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+}
+
+.back-button {
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255); /* White */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000;
+    background-color: rgb(255, 0, 0); /* Red */
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: rgb(200, 0, 0); /* Slightly darker red on hover */
+}

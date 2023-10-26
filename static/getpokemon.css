@@ -1,0 +1,95 @@
+/* Style the page background */
+body {
+    background-image: url("poke.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+@font-face {
+    font-family: 'Pokemon';
+    src: url('Pokemon\ Solid.ttf') format('truetype');
+}
+
+h1 {
+    font-family: 'Pokemon', Arial, sans-serif;
+    font-size: 3rem;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #ffcb05; /* Set the font color to yellow */
+    text-shadow: 
+        -4px -4px 0 #0077b6, 4px -4px 0 #0077b6, -4px 4px 0 #0077b6, 4px 4px 0 #0077b6,
+        -4px -4px 0 #0077b6, 4px -4px 0 #0077b6, -4px 4px 0 #0077b6, 4px 4px 0 #0077b6,
+        0 0 12px #0077b6; /* Add a thicker blue outline */
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #ffcb05;
+    text-shadow: 
+        -2px -2px 0 #0077b6, 2px -2px 0 #0077b6, -2px 2px 0 #0077b6, 2px 2px 0 #0077b6;
+    border-bottom: 3px solid #0077b6; /* Add a modern underline */
+}
+
+/* Style the search form */
+form {
+    text-align: center;
+}
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+input[type="submit"] {
+    background-color: #fca311; /* Change to your preferred color */
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #e87f06; /* Change to your preferred color */
+}
+
+/* Style the list of Pokemon names */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    font-size: 20px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.4); /* Transparent white background (80% opacity) */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    text-align: center;
+}
+
+
+/* Add a hover effect for Pokemon names */
+li:hover {
+    background-color: #0077b6; /* Change to your preferred color */
+    color: white;
+}

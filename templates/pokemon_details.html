@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokémon Details</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='pokemon_details.css') }}">
+</head>
+<body>
+    <h1>Pokémon Details</h1>
+    <h2>{{ pokemon_name }}</h2>
+    <br>
+    <h3>Abilities:</h3>
+    <ul>
+        {% for ability in abilities %}
+            <li>{{ ability }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

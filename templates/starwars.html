@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='starwars.css') }}">
+    <title>Star Wars Character Guessing Game</title>
+</head>
+<body>
+    <h1>Star Wars Character Guessing Game</h1>
+
+    <p>Can you guess which {{ character_data['gender'] }} character has {{ character_data['eye_color'] }} eye color, {{ character_data['hair_color'] }} hair color, {{ character_data['skin_color'] }} skin color with the birth year of {{ character_data['birth_year'] }}?</p>
+
+    <form method="POST">
+        <input type="submit" name="answer" value="Answer">
+    </form>
+
+</body>
+</html>
