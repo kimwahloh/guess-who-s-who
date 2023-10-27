@@ -1,5 +1,2 @@
 flask
-requests 
-json
-random
-secrets
+requests
