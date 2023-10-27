@@ -4,8 +4,6 @@ import json
 import random
 import secrets
 
-app = Flask(__name__, static_folder='static', template_folder='templates')
-app.secret_key = secrets.token_hex(16)
 
 # Function to retrieve character data from the Star Wars API
 def get_character_data(character_number):
@@ -29,55 +27,61 @@ def refresh_character_data():
             'name': response_data.get('name', 'Unknown'),
         }
 
-@app.route('/')
-def intro():
-    return render_template("index.html")
+def create_app():
+    app = Flask(__name__, static_folder='static', template_folder='templates')
+    app.secret_key = secrets.token_hex(16)
 
-@app.route('/starwars', methods=['GET', 'POST'])
-def star():
-    try:
-        if 'character_data' not in session:
-            refresh_character_data()
+    @app.route('/')
+    def intro():
+        return render_template("index.html")
 
-        if 'answer' in request.form:
-            answer_name = session['character_data']['name']
-            session.pop('character_data')
-            return f"The character is {answer_name}<br><br><a href='/starwars'>Try again</a> <br> <a href='https://thirsty-jennings-167dbc.netlify.app/'>Check out the answer</a>"
+    @app.route('/starwars', methods=['GET', 'POST'])
+    def star():
+        try:
+            if 'character_data' not in session:
+                refresh_character_data()
 
-        return render_template("starwars.html", character_data=session['character_data'])
+            if 'answer' in request.form:
+                answer_name = session['character_data']['name']
+                session.pop('character_data')
+                return f"The character is {answer_name}<br><br><a href='/starwars'>Try again</a> <br> <a href='https://thirsty-jennings-167dbc.netlify.app/'>Check out the answer</a>"
 
-    except Exception as e:
-        return f"An error occurred: {str(e)}"
+            return render_template("starwars.html", character_data=session['character_data'])
 
-@app.route('/getpokemon', methods=['GET', 'POST'])
-def get_pokemon():
-    if request.method == 'POST':
-        pokemon_name = request.form.get('pokemon_name')
-        # Redirect to the individual Pokemon page
-        return redirect(url_for('get_pokemon_details', pokemon=pokemon_name))
-    
-    # Retrieve the list of Pokemon names (this is the same code you had before)
-    response = requests.get('https://pokeapi.co/api/v2/pokemon?limit=1000')
-    data = response.json()
-    pokemon_names = [pokemon['name'] for pokemon in data['results']]
-    
-    return render_template('getpokemon.html', heading='Choose a Pokemon', names=pokemon_names)
+        except Exception as e:
+            return f"An error occurred: {str(e)}"
 
-@app.route('/getpokemon/<pokemon>')
-def get_pokemon_details(pokemon):
-    # Get the abilities of the specified Pokémon
-    response = requests.get(f'https://pokeapi.co/api/v2/pokemon/{pokemon}/')
-    
-    if response.status_code == 200:
-        data = response.json()
-        abilities = [ability['ability']['name'] for ability in data['abilities']]
+    @app.route('/getpokemon', methods=['GET', 'POST'])
+    def get_pokemon():
+        if request.method == 'POST':
+            pokemon_name = request.form.get('pokemon_name')
+            # Redirect to the individual Pokemon page
+            return redirect(url_for('get_pokemon_details', pokemon=pokemon_name))
         
-        # Render the HTML template and pass the data to it
-        return render_template('pokemon_details.html', pokemon_name=pokemon, abilities=abilities)
-    else:
-        return 'Pokemon not found'
+        # Retrieve the list of Pokemon names (this is the same code you had before)
+        response = requests.get('https://pokeapi.co/api/v2/pokemon?limit=1000')
+        data = response.json()
+        pokemon_names = [pokemon['name'] for pokemon in data['results']]
+        
+        return render_template('getpokemon.html', heading='Choose a Pokemon', names=pokemon_names)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+    @app.route('/getpokemon/<pokemon>')
+    def get_pokemon_details(pokemon):
+        # Get the abilities of the specified Pokémon
+        response = requests.get(f'https://pokeapi.co/api/v2/pokemon/{pokemon}/')
+        
+        if response.status_code == 200:
+            data = response.json()
+            abilities = [ability['ability']['name'] for ability in data['abilities']]
+            
+            # Render the HTML template and pass the data to it
+            return render_template('pokemon_details.html', pokemon_name=pokemon, abilities=abilities)
+        else:
+            return 'Pokemon not found'
+
+    if __name__ == '__main__':
+        app.run(debug=True)
+
+    return app
 
 
